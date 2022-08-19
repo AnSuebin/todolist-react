@@ -1,0 +1,35 @@
+.TodoListItem {
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgb(255, 108, 54);
+  color: rgb(255, 108, 54);
+}
+
+.checkbox {
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox i {
+  font-size: 1.2rem;
+}
+
+.checkbox .text {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.remove {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.remove:hover {
+  color: brown;
+}
