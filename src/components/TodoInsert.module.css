@@ -15,7 +15,7 @@
 }
 
 .TodoInsert input::placeholder {
-  color: gray;
+  color: rgb(255, 108, 54);
   font-size: 0.9rem;
 }
 

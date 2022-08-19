@@ -13,6 +13,11 @@
   align-items: center;
 }
 
+.checkbox.checked {
+  color: rgb(135, 135, 135);
+  text-decoration: line-through;
+}
+
 .checkbox i {
   font-size: 1.2rem;
 }
