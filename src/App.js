@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import TodoTemplate from './components/TodoTemplate'
 import TodoInsert from './components/TodoInsert'
 import TodoList from './components/TodoList'
-import { useState } from 'react'
 
 function App() {
   const [todos, setTodos] = useState([
@@ -22,10 +21,46 @@ function App() {
       checked: true,
     },
   ])
+
+  //고유값으로 사용도리 id
+  // ref를 사용하여 변수 담기
+  const nextId = useRef(4)
+
+  const onInsert = useCallback(
+    (text) => {
+      const todo = {
+        id: nextId.current,
+        text,
+        checked: false,
+      }
+      setTodos(todos.concat(todo))
+      nextId.current += 1
+    },
+    [todos]
+  )
+
+  const onRemove = useCallback(
+    (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id))
+    },
+    [todos]
+  )
+
+  const onToggle = useCallback(
+    (id) => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo
+        )
+      )
+    },
+    [todos]
+  )
+
   return (
     <TodoTemplate>
-      <TodoInsert />
-      <TodoList todos={todos} />
+      <TodoInsert onInsert={onInsert} />
+      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
     </TodoTemplate>
   )
 }
