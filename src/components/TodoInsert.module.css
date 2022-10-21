@@ -1,6 +1,7 @@
 .TodoInsert {
   display: flex;
   flex: 1;
+  border-bottom: 1px solid rgb(255, 108, 54);
 }
 
 .TodoInsert input {

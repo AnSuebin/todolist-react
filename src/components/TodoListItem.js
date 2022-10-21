@@ -3,8 +3,11 @@ import styles from './TodoListItem.module.css'
 const TodoListItem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo
   return (
-    <div className={styles.TodoListItem} onClick={() => onToggle(id)}>
-      <div className={`${styles.checkbox} ${checked && styles.checked}`}>
+    <div className={styles.TodoListItem}>
+      <div
+        className={`${styles.checkbox} ${checked && styles.checked}`}
+        onClick={() => onToggle(id)}
+      >
         {checked ? (
           <i className="bi bi-emoji-smile-fill"></i>
         ) : (
